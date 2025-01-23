@@ -91,7 +91,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         icon: Bot,
         items: [
           {
-            title: "Perfiles", // Solo admin
+            title: "Perfil", // Solo admin
             url: "/dashboard/profile",
           },
           {

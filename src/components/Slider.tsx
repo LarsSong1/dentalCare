@@ -5,13 +5,16 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import Image from 'next/image'
 import "swiper/css";
+import DoctorCard from './ui/doctorCard'
 
 
 type SliderProps = {
   id: number,
   name: string,
   description: string,
-  image: string
+  speciality: string,
+  image: string,
+  city: string
 }
 
 
@@ -20,19 +23,40 @@ const Slider = ({ data }: { data: SliderProps[] }) => {
     <Swiper
       loop={true}
       modules={[Autoplay]}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false
-      }}
+      // autoplay={{
+      //   delay: 2500,
+      //   disableOnInteraction: false
+      // }}
       direction='horizontal'
       slidesPerView={3}
-      spaceBetween={20}
+      breakpoints={{
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        1280: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          
+        }
+      }}
+      
     >
       {
         data.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className='w-[300px]'>
-              <Image width={100} height={100} src={item.image} alt={`${item.name}-image`} />
+            <div >
+              <DoctorCard 
+              city={item.city} 
+              image={item.image}
+              name={item.name}
+              speciality={item.speciality}
+              />
             </div>
           </SwiperSlide>
         ))

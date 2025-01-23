@@ -112,15 +112,15 @@ export function NavUser({
                 Notificaciones
               </DropdownMenuItem>
             </DropdownMenuGroup>
-            <DropdownMenuSeparator />
             <DropdownMenuItem>
               <form action={signOut}>
-                <button className="flex" type="submit">
-                  <LogOut />
+                <button className="flex items-center justify-center" type="submit">
+                  <LogOut size={15} className="mr-2"/>
                   <p>Cerrar Sesión</p>
                 </button>
               </form>
             </DropdownMenuItem>
+            {/* <DropdownMenuSeparator /> */}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
